@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use Monorail\Panel\Panel;
+use Monorail\Panel\PanelProvider;
+
+final class {{ class }} extends PanelProvider
+{
+    public function panel(Panel $panel): Panel
+    {
+        return $panel
+            ->path('{{ id }}')
+            ->brand('{{ id }}')
+            ->discoverResources(
+                in: app_path('Monorail/Resources'),
+                for: 'App\\Monorail\\Resources',
+            );
+    }
+}
