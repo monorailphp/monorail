@@ -1,0 +1,81 @@
+{
+    "sections": [
+        {
+            "title": "Introduction",
+            "items": [
+                { "slug": "", "title": "Overview" }
+            ]
+        },
+        {
+            "title": "Getting Started",
+            "items": [
+                "getting-started/installation",
+                "getting-started/quick-start"
+            ]
+        },
+        {
+            "title": "Panels",
+            "items": [
+                "panels/configuration",
+                "configuration"
+            ]
+        },
+        {
+            "title": "Resources",
+            "items": [
+                "resources/overview",
+                "resources/custom-pages",
+                "resources/relation-managers"
+            ]
+        },
+        {
+            "title": "Tables",
+            "items": [
+                "tables/columns",
+                "tables/filters",
+                "tables/actions"
+            ]
+        },
+        {
+            "title": "Forms",
+            "items": [
+                "forms/fields"
+            ]
+        },
+        {
+            "title": "Pages",
+            "items": [
+                "pages/overview",
+                "pages/blocks",
+                "pages/actions"
+            ]
+        },
+        {
+            "title": "Widgets",
+            "items": [
+                "widgets/overview"
+            ]
+        },
+        {
+            "title": "Features",
+            "items": [
+                "authorization",
+                "global-search",
+                "notifications",
+                "i18n"
+            ]
+        },
+        {
+            "title": "Advanced",
+            "items": [
+                "advanced/server-driven-ui"
+            ]
+        },
+        {
+            "title": "Contributing",
+            "items": [
+                "contributing"
+            ]
+        }
+    ]
+}
