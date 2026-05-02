@@ -52,8 +52,14 @@ See [Panel Configuration](../panels/configuration.md#layout) for the
 
 ## Adding a custom widget
 
-Subclass the appropriate base in `src/Dashboard/` (or extend `Widget`
-directly for a new shape). A widget returns data plus rendering hints via
-`toArray()`; the React widget renderer dispatches on `type`. Add the
-React component and a feature test that asserts the schema — same
-three-move pattern as [custom columns](../tables/columns.md#adding-a-custom-column).
+Custom widgets are registry-driven — you don't fork Monorail to add one.
+Subclass `Widget` for the PHP schema, write a React component, register
+it via `createMonorail({ widgets: { ... } })` in your host app entry.
+
+See [Customizing the Frontend](../advanced/customizing-the-frontend.md#registering-a-custom-widget)
+for the full walkthrough.
+
+If you're upstreaming a widget into Monorail itself, add the case to
+`components/widget-renderer.tsx` and cover the serialization in a
+feature test — see [custom columns](../tables/columns.md#adding-a-custom-column)
+for the contributor-side pattern.

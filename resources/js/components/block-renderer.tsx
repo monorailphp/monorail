@@ -1,5 +1,6 @@
 import { renderWidget } from './widget-renderer';
 import type { Block } from '../lib/types';
+import { registry } from '../lib/registry';
 
 export function renderBlock(
     block: Block,
@@ -7,6 +8,11 @@ export function renderBlock(
     panelPath: string,
     slug: string
 ): React.ReactNode {
+    const Custom = registry.blocks[(block as { type: string }).type];
+    if (Custom) {
+        return <Custom key={key} block={block} panelPath={panelPath} slug={slug} />;
+    }
+
     if (block.type === 'html') {
         return (
             <div key={key} dangerouslySetInnerHTML={{ __html: block.html }} />

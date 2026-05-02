@@ -28,7 +28,7 @@ one as default with `$panel->default()`.
 
 | Key | Default | Purpose |
 | --- | --- | --- |
-| `assets.js_entry` | `env('MONORAIL_JS_ENTRY', 'packages/rocketphp/resources/js/monorail.tsx')` | Vite entry included in the root Blade view. Change this if you've published Monorail's JS with `monorail-assets`. |
+| `assets.js_entry` | `env('MONORAIL_JS_ENTRY', 'packages/rocketphp/resources/js/monorail.tsx')` | Vite entry included in the root Blade view. Point this at your own entry file if you call `createMonorail()` to register custom components — see [Customizing the Frontend](advanced/customizing-the-frontend.md). |
 
 ## Routes
 
@@ -67,7 +67,7 @@ what you need.
 | `monorail-config` | `config/monorail.php` | Change defaults (pagination, brand, routes). |
 | `monorail-lang` | `lang/vendor/monorail/{locale}.json` | Override translations. See [i18n](i18n.md). |
 | `monorail-views` | `resources/views/vendor/monorail/` | Override the Blade root layout. |
-| `monorail-assets` | `resources/js/vendor/monorailphp/` | Fork the React frontend. |
+| `monorail-assets` | `resources/js/vendor/monorailphp/` | Fork the React frontend. **Most extension needs are better served by the registry-based [createMonorail()](advanced/customizing-the-frontend.md) flow** — only publish if you need to edit built-in components directly. |
 | `monorail-stubs` | `stubs/monorail/` | Customise the templates used by `monorail:make-*` generators. |
 
 Publish a single tag:

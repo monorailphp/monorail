@@ -68,13 +68,15 @@ SelectFilter::make('activity')
 
 ## Adding a custom filter
 
-Subclass `Filter` in `src/Tables/Filters/`. A filter implements two
-things:
+Custom filters are registry-driven — you don't fork Monorail to add one.
+Subclass `Filter` for the PHP side (`toArray()` + `apply()`), write a
+React component, register it via `createMonorail({ filters: { ... } })`
+in your host app entry.
 
-- `toArray()` — the schema the React renderer reads
-- `apply(Builder $query, mixed $value)` — how the filter mutates the
-  query when the user picks a value
+See [Customizing the Frontend](../advanced/customizing-the-frontend.md#registering-a-custom-filter)
+for the full walkthrough.
 
-Register the schema `type` in the filters bar renderer on the React
-side, and cover the serialization in a feature test. Same three-move
-pattern as [custom columns](columns.md#adding-a-custom-column).
+If you're upstreaming a filter into Monorail itself, add the case to
+`components/table-filters.tsx` and cover the serialization in a feature
+test — see [custom columns](columns.md#adding-a-custom-column) for the
+contributor-side pattern.

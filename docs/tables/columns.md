@@ -52,9 +52,17 @@ Common column modifiers:
 
 ## Adding a custom column
 
-Every column is a PHP class that serializes to a schema plus a React
-component that renders it. Adding one is always three moves: PHP class,
-React renderer, test.
+Custom columns are registry-driven — you don't fork Monorail to add one.
+Subclass `Column` for the PHP schema, write a React component, register
+it via `createMonorail({ columns: { ... } })` in your host app entry.
+
+See [Customizing the Frontend](../advanced/customizing-the-frontend.md#registering-a-custom-column)
+for the full walkthrough.
+
+### Upstreaming a column into Monorail
+
+If your column is broadly useful, contribute it to the package itself.
+The contributor pattern is three moves: PHP class, React renderer, test.
 
 **1. PHP.** Subclass `Column` in `src/Tables/Columns/`:
 
@@ -83,8 +91,9 @@ final class ProgressColumn extends Column
 switch that picks a cell renderer:
 
 ```tsx
-case 'progress':
-    return <ProgressCell value={row[col.name]} />;
+if (col.type === 'progress') {
+    return <ProgressCell value={value} />;
+}
 ```
 
 Create `progress-cell.tsx` with the actual DOM.

@@ -3,6 +3,7 @@ import { Check, ChevronDown, ChevronUp, Filter as FilterIcon, X } from 'lucide-r
 import { useState } from 'react';
 import { DateRangePicker } from './date-range-picker';
 import FormField, { type FieldSchema } from './form-field';
+import { registry } from '../lib/registry';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
@@ -454,6 +455,20 @@ function renderFilter(
     navigate: (m: (q: Record<string, unknown>) => Record<string, unknown>) => void,
     __: (key: string, replacements?: Record<string, string | number>) => string,
 ) {
+    const Custom = registry.filters[(f as { type: string }).type];
+    if (Custom) {
+        return (
+            <Custom
+                filter={f}
+                query={query}
+                pending={pending}
+                stage={stage}
+                navigate={navigate}
+                __={__}
+            />
+        );
+    }
+
     const pendingFor = (path: string) => (path in pending ? pending[path] : undefined);
 
     if (f.type === 'select') {

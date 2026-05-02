@@ -68,7 +68,8 @@
         {
             "title": "Advanced",
             "items": [
-                "advanced/server-driven-ui"
+                "advanced/server-driven-ui",
+                "advanced/customizing-the-frontend"
             ]
         },
         {

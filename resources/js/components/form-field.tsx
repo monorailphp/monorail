@@ -1,4 +1,5 @@
 import type { Translator } from '../lib/i18n';
+import { registry } from '../lib/registry';
 import { SearchableSelect } from './searchable-select';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
@@ -57,6 +58,11 @@ function renderControl(
     onChange: (value: unknown) => void,
     __: Translator,
 ) {
+    const Custom = registry.fields[field.type];
+    if (Custom) {
+        return <Custom field={field} value={value} onChange={onChange} />;
+    }
+
     switch (field.type) {
         case 'textarea': {
             const rows = (field.extra.rows as number | undefined) ?? 4;

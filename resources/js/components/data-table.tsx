@@ -19,6 +19,7 @@ import ConfirmDialog from './confirm-dialog';
 import DataTableColumnHeader from './data-table-column-header';
 import DataTableViewOptions from './data-table-view-options';
 import TableFilters, { type FiltersLayoutSchema, type TableFilterSchema as TFSchema } from './table-filters';
+import { registry } from '../lib/registry';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -637,6 +638,11 @@ export default function DataTable({
 }
 
 function renderCell(col: Column, value: unknown, __: (key: string) => string = (key) => key) {
+    const Custom = registry.columns[col.type];
+    if (Custom) {
+        return <Custom column={col} value={value} __={__} />;
+    }
+
     if (value === null || value === undefined) {
         return <span className="text-muted-foreground">—</span>;
     }

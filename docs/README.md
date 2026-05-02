@@ -49,6 +49,9 @@ The four primitives you compose every admin screen from:
 - [Server-Driven UI](advanced/server-driven-ui.md) — the pattern, the
   three-move extension mechanism (PHP class → React renderer → feature
   test), and when SDUI is the wrong tool.
+- [Customizing the Frontend](advanced/customizing-the-frontend.md) —
+  register custom fields, widgets, blocks, and pages from your host app
+  via `createMonorail()` without forking the package.
 
 ## Contributing
 

@@ -6,8 +6,14 @@ import { WidgetCard } from './widget-card';
 import { TableBlockRenderer } from './table-block-renderer';
 import { DashboardWidget } from '../lib/types';
 import { colSpanClass } from '../lib/grid';
+import { registry } from '../lib/registry';
 
 export function renderWidget(w: DashboardWidget, key: number): React.ReactNode {
+    const Custom = registry.widgets[(w as { type: string }).type];
+    if (Custom) {
+        return <Custom key={key} widget={w} />;
+    }
+
     if (w.type === 'stat') {
         return (
             <Card key={key} size="sm" className={colSpanClass(w.column_span)}>

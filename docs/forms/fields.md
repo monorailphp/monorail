@@ -87,12 +87,17 @@ Tabs::make('Post')
 
 ## Adding a custom field
 
-Subclass `Field` in `src/Forms/Components/` and implement `toArray()`
-with the field schema, including any serialized validation rules. Add a
-matching React component under `resources/js/components/` and cover the
-serialization in a feature test.
+Custom fields are registry-driven — you don't fork Monorail to add one.
+Subclass `Field` for the PHP schema, write a React component, register
+it via `createMonorail({ fields: { ... } })` in your host app entry.
 
 Laravel validation rules travel as part of the schema — the client
 displays errors from the server response and never re-validates.
 
-Same three-move pattern as [custom columns](../tables/columns.md#adding-a-custom-column).
+See [Customizing the Frontend](../advanced/customizing-the-frontend.md#registering-a-custom-field)
+for the full walkthrough.
+
+If you're upstreaming a primitive into Monorail itself, add the React
+case to `components/form-field.tsx` and cover the serialization in a
+feature test — see [custom columns](../tables/columns.md#adding-a-custom-column)
+for the contributor-side pattern.

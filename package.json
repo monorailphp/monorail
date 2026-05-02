@@ -1,6 +1,6 @@
 {
     "name": "@monorail/monorail",
-    "version": "0.1.0",
+    "version": "1.1.0",
     "description": "Filament-style admin panel framework for Inertia.js + React.",
     "license": "MIT",
     "type": "module",
@@ -18,6 +18,8 @@
     ],
     "exports": {
         ".": "./resources/js/monorail.tsx",
+        "./create": "./resources/js/lib/create.tsx",
+        "./registry": "./resources/js/lib/registry.ts",
         "./monorail.css": "./resources/js/monorail.css",
         "./pages/*": "./resources/js/pages/*.tsx",
         "./components/*": "./resources/js/components/*.tsx",

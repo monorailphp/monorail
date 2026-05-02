@@ -44,11 +44,15 @@ renderer composes them without any page-specific code.
 
 ## Adding a custom block
 
-1. Subclass a base block class in `src/Pages/Blocks/`
-2. Implement `toArray(): array` to serialize the schema
-3. Add a matching React renderer in `block-renderer.tsx`
-4. Cover the serialization in a test under `tests/Feature/Pages/`
+Custom blocks are registry-driven — you don't fork Monorail to add one.
+Subclass a base block class for the PHP schema, write a React component,
+register it via `createMonorail({ blocks: { ... } })` in your host app
+entry.
 
-Same three-move pattern as [custom columns](../tables/columns.md#adding-a-custom-column).
-See [Server-Driven UI](../advanced/server-driven-ui.md) for the broader
-pattern this follows.
+See [Customizing the Frontend](../advanced/customizing-the-frontend.md#registering-a-custom-block)
+for the full walkthrough.
+
+If you're upstreaming a block into Monorail itself, add the case to
+`components/block-renderer.tsx` and cover the serialization in a test
+under `tests/Feature/Pages/`. See [Server-Driven UI](../advanced/server-driven-ui.md)
+for the broader pattern this follows.
