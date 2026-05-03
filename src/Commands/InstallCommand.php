@@ -47,9 +47,9 @@ final class InstallCommand extends Command
 
     private function runNpmInstall(): void
     {
-        $this->line('  Running: npm install @monorailphp/monorail --registry=https://npm.pkg.github.com');
+        $this->line('  Running: npm install @monorailphp/monorail');
 
-        $process = Process::fromShellCommandLine('npm install @monorailphp/monorail --registry=https://npm.pkg.github.com');
+        $process = Process::fromShellCommandLine('npm install @monorailphp/monorail');
         $process->run();
 
         if (! $process->isSuccessful()) {

@@ -29,7 +29,7 @@ API surface to design.
 
 ```bash
 composer require monorail/monorail
-npm install @monorailphp/monorail --registry=https://npm.pkg.github.com
+npm install @monorailphp/monorail
 ```
 
 Or use the install command (recommended):
