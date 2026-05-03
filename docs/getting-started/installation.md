@@ -17,15 +17,7 @@
 composer require monorail/monorail
 ```
 
-The service provider is auto-discovered — no manual registration needed.
-
-**2. Install the npm package:**
-
-```bash
-npm install @monorailphp/monorail --registry=https://npm.pkg.github.com
-```
-
-Or use the install command (recommended):
+**2. Run the install command (recommended):**
 
 ```bash
 php artisan monorail:install
@@ -37,7 +29,15 @@ This command will:
 - Publish the config file
 - Publish and run migrations
 
-## Manual frontend setup (if not using install command)
+Or install the npm package manually:
+
+```bash
+npm install @monorailphp/monorail --registry=https://npm.pkg.github.com
+```
+
+## Manual install
+
+If you prefer not to use the install command, follow these steps:
 
 **1. Register Monorail's source with Tailwind.** Add to `resources/css/app.css`:
 
