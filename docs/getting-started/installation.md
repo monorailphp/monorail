@@ -7,9 +7,11 @@
 - Inertia.js v3 (`inertiajs/inertia-laravel`)
 - React 19 + `@inertiajs/react`
 - Tailwind CSS v4 in the host app
-- shadcn/ui components
+- Node.js 18+ (for npm)
 
-## Install the package
+## Install the packages
+
+**1. Install the Composer package:**
 
 ```bash
 composer require monorail/monorail
@@ -17,7 +19,25 @@ composer require monorail/monorail
 
 The service provider is auto-discovered — no manual registration needed.
 
-## Wire up the frontend
+**2. Install the npm package:**
+
+```bash
+npm install @monorailphp/monorail --registry=https://npm.pkg.github.com
+```
+
+Or use the install command (recommended):
+
+```bash
+php artisan monorail:install
+```
+
+This command will:
+- Install the npm package from GitHub Packages
+- Update `vite.config.ts` with the Monorail entry point
+- Publish the config file
+- Publish and run migrations
+
+## Manual frontend setup (if not using install command)
 
 **1. Register Monorail's source with Tailwind.** Add to `resources/css/app.css`:
 
@@ -35,13 +55,13 @@ laravel({
     input: [
         'resources/css/app.css',
         'resources/js/app.tsx',
-        'vendor/monorail/monorail/resources/js/monorail.tsx',
+        'node_modules/@monorailphp/monorail/resources/js/monorail.tsx',
     ],
 }),
 // ...
 resolve: {
     alias: {
-        '@monorail': path.resolve(__dirname, 'vendor/monorail/monorail/resources/js'),
+        '@monorail': path.resolve(__dirname, 'node_modules/@monorailphp/monorail/resources/js'),
     },
 },
 ```
