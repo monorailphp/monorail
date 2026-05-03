@@ -23,12 +23,19 @@ API surface to design.
 - Inertia.js v3 (`inertiajs/inertia-laravel`)
 - Tailwind CSS v4 in the host app
 - React 19 + `@inertiajs/react`
-- shadcn/ui components
+- Node.js 18+ (for npm)
 
 ## Install
 
 ```bash
 composer require monorail/monorail
+npm install @monorailphp/monorail --registry=https://npm.pkg.github.com
+```
+
+Or use the install command (recommended):
+
+```bash
+php artisan monorail:install
 ```
 
 Then wire up Tailwind and Vite — see the
