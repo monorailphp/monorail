@@ -29,7 +29,7 @@ API surface to design.
 
 ```bash
 composer require monorail/monorail
-npm install @monorailphp/monorail
+npm install monorail-laravel
 ```
 
 Or use the install command (recommended):
