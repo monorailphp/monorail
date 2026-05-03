@@ -7,7 +7,7 @@ PRs that stay focused land fastest.
 
 ```bash
 git clone https://github.com/monorailphp/monorail.git
-cd rocketphp
+cd monorail
 composer install
 npm install
 ```

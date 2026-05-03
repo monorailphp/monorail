@@ -28,7 +28,7 @@ one as default with `$panel->default()`.
 
 | Key | Default | Purpose |
 | --- | --- | --- |
-| `assets.js_entry` | `env('MONORAIL_JS_ENTRY', 'packages/rocketphp/resources/js/monorail.tsx')` | Vite entry included in the root Blade view. Point this at your own entry file if you call `createMonorail()` to register custom components — see [Customizing the Frontend](advanced/customizing-the-frontend.md). |
+| `assets.js_entry` | `env('MONORAIL_JS_ENTRY', 'packages/monorail/resources/js/monorail.tsx')` | Vite entry included in the root Blade view. Point this at your own entry file if you call `createMonorail()` to register custom components — see [Customizing the Frontend](advanced/customizing-the-frontend.md). |
 
 ## Routes
 

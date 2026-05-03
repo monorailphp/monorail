@@ -263,7 +263,7 @@ Phases 1–7 shipped. Next focus: **Release 1.0 prep** — Packagist publish, CI
 
 ### Out of core (companion packages / docs)
 
-- **Audit log** — opt-in change tracking (e.g. `spatie/laravel-activitylog` integration, diff viewer, "Activity" relation manager). Cross-cutting concern, not part of the SDUI/admin-panel contract; ship as `rocketphp/audit-log` companion package once core 1.0 lands.
+- **Audit log** — opt-in change tracking (e.g. `spatie/laravel-activitylog` integration, diff viewer, "Activity" relation manager). Cross-cutting concern, not part of the SDUI/admin-panel contract; ship as `monorail/audit-log` companion package once core 1.0 lands.
 - **Multi-tenancy** — integration recipe, not a feature. Document "panel-per-tenant" vs. "shared panel, tenant column" patterns with `stancl/tenancy` in the README; ship a companion package only if a concrete consumer use case demands it.
 
 ---

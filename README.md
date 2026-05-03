@@ -105,7 +105,7 @@ Full reference in [docs/](docs/README.md).
 
 ```bash
 git clone https://github.com/monorailphp/monorail.git
-cd rocketphp
+cd monorail
 composer install
 ./vendor/bin/pest
 ```

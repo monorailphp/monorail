@@ -45,7 +45,7 @@ return [
     */
 
     'assets' => [
-        'js_entry' => env('MONORAIL_JS_ENTRY', 'packages/rocketphp/resources/js/monorail.tsx'),
+        'js_entry' => env('MONORAIL_JS_ENTRY', 'packages/monorail/resources/js/monorail.tsx'),
     ],
 
     /*
