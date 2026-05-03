@@ -32,7 +32,7 @@ This command will:
 Or install the npm package manually:
 
 ```bash
-npm install laravel-monorail
+npm install monorailphp
 ```
 
 ## Manual install
@@ -55,13 +55,13 @@ laravel({
     input: [
         'resources/css/app.css',
         'resources/js/app.tsx',
-        'node_modules/laravel-monorail/resources/js/monorail.tsx',
+        'node_modules/monorailphp/resources/js/monorail.tsx',
     ],
 }),
 // ...
 resolve: {
     alias: {
-        '@monorail': path.resolve(__dirname, 'node_modules/laravel-monorail/resources/js'),
+        '@monorail': path.resolve(__dirname, 'node_modules/monorailphp/resources/js'),
     },
 },
 ```
