@@ -1,6 +1,6 @@
 {
     "name": "@monorailphp/monorail",
-    "version": "1.1.5",
+    "version": "1.1.6",
     "description": "Server-Driven UI (SDUI) framework for Laravel + Inertia.js + React + shadcn/ui.",
     "license": "MIT",
     "type": "module",
