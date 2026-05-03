@@ -1,6 +1,6 @@
 {
     "name": "@monorail/monorail",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Filament-style admin panel framework for Inertia.js + React.",
     "license": "MIT",
     "type": "module",
