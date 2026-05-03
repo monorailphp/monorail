@@ -1,6 +1,6 @@
 {
     "name": "monorail/monorail",
-    "description": "Filament-style admin panel framework for Inertia.js + React.",
+    "description": "Server-Driven UI (SDUI) framework for Laravel + Inertia.js + React + shadcn/ui.",
     "type": "library",
     "license": "MIT",
     "keywords": ["laravel", "inertia", "react", "admin", "panel", "filament"],
