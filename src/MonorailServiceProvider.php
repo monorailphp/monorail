@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Monorail;
 
 use Illuminate\Support\ServiceProvider;
+use Monorail\Commands\InstallCommand;
 use Monorail\Commands\MakeExporterCommand;
 use Monorail\Commands\MakeImporterCommand;
 use Monorail\Commands\MakePageCommand;
@@ -56,6 +57,7 @@ final class MonorailServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->commands([
+                InstallCommand::class,
                 MakePanelCommand::class,
                 MakeResourceCommand::class,
                 MakePageCommand::class,
