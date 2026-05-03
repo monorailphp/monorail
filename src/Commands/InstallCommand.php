@@ -47,9 +47,9 @@ final class InstallCommand extends Command
 
     private function runNpmInstall(): void
     {
-        $this->line('  Running: npm install monorail-laravel');
+        $this->line('  Running: npm install laravel-monorail');
 
-        $process = Process::fromShellCommandLine('npm install monorail-laravel');
+        $process = Process::fromShellCommandLine('npm install laravel-monorail');
         $process->run();
 
         if (! $process->isSuccessful()) {
@@ -85,7 +85,7 @@ final class InstallCommand extends Command
 
         $content = File::get($viteConfigPath);
 
-        $entryPoint = "'node_modules/monorail-laravel/resources/js/monorail.tsx'";
+        $entryPoint = "'node_modules/laravel-monorail/resources/js/monorail.tsx'";
 
         if (str_contains($content, $entryPoint)) {
             $this->info('  vite.config.ts already updated.');
@@ -100,13 +100,13 @@ final class InstallCommand extends Command
             $content = str_replace($search, $replace, $content);
         } else {
             $this->warn('  Could not find app.tsx in vite.config.ts - please add the entry manually:');
-            $this->line("    'node_modules/monorail-laravel/resources/js/monorail.tsx',");
+            $this->line("    'node_modules/laravel-monorail/resources/js/monorail.tsx',");
 
             return;
         }
 
         $search = '@monorail';
-        $replace = "alias: {\n      '@monorail': path.resolve(__dirname, 'node_modules/monorail-laravel/resources/js'),";
+        $replace = "alias: {\n      '@monorail': path.resolve(__dirname, 'node_modules/laravel-monorail/resources/js'),";
 
         if (! str_contains($content, $search)) {
             $content = str_replace('alias: {', $replace, $content);
