@@ -32,7 +32,7 @@ This command will:
 Or install the npm package manually:
 
 ```bash
-npm install @monorailphp/monorail
+npm install @monorailphp/monorail --registry=https://npm.pkg.github.com
 ```
 
 ## Manual install
