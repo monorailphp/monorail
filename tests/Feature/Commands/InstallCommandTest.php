@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 it('runs monorail:install command successfully', function () {
-    $exitCode = \Illuminate\Support\Facades\Artisan::call('monorail:install');
+    $exitCode = Illuminate\Support\Facades\Artisan::call('monorail:install');
 
     expect($exitCode)->toBe(0);
 });
