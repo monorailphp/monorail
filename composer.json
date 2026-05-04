@@ -3,7 +3,7 @@
     "description": "Server-Driven UI (SDUI) framework for Laravel + Inertia.js + React + shadcn/ui.",
     "type": "library",
     "license": "MIT",
-    "keywords": ["laravel", "inertia", "react", "admin", "panel", "filament"],
+    "keywords": ["laravel", "inertia", "react", "admin", "panel"],
     "authors": [
         {
             "name": "Maher El Gamil",

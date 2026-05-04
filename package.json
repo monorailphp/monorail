@@ -10,8 +10,7 @@
         "inertia",
         "react",
         "admin",
-        "panel",
-        "filament"
+        "panel"
     ],
     "files": [
         "resources/js"
