@@ -36,7 +36,10 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/pest"
+        "test": "vendor/bin/pest",
+        "post-update-cmd": [
+            "@php -r \"echo '\\n\\033[32mMonorail updated.\\033[0m Run \\033[33mnpm install && npm run build\\033[0m to recompile frontend assets.\\n\\n';\""
+        ]
     },
     "extra": {
         "laravel": {
