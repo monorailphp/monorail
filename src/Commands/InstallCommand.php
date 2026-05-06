@@ -93,23 +93,43 @@ final class InstallCommand extends Command
             return;
         }
 
-        $search = "'resources/js/app.tsx',";
-        $replace = "'resources/js/app.tsx',\n        {$entryPoint},";
+        // Match app.tsx whether it's the last item in a single-line array (no trailing comma)
+        // or has a trailing comma in a multi-line array. Handles both ' and " quoting.
+        $injected = false;
+        $patterns = [
+            "'resources/js/app.tsx'," => "'resources/js/app.tsx',\n            {$entryPoint},",
+            "'resources/js/app.tsx']" => "'resources/js/app.tsx', {$entryPoint}]",
+            '"resources/js/app.tsx",' => "\"resources/js/app.tsx\",\n            {$entryPoint},",
+            '"resources/js/app.tsx"]' => "\"resources/js/app.tsx\", {$entryPoint}]",
+        ];
 
-        if (str_contains($content, $search)) {
-            $content = str_replace($search, $replace, $content);
-        } else {
+        foreach ($patterns as $search => $replace) {
+            if (str_contains($content, $search)) {
+                $content = str_replace($search, $replace, $content);
+                $injected = true;
+                break;
+            }
+        }
+
+        if (! $injected) {
             $this->warn('  Could not find app.tsx in vite.config.ts - please add the entry manually:');
-            $this->line("    'node_modules/monorailphp/resources/js/monorail.tsx',");
+            $this->line("    {$entryPoint},");
 
             return;
         }
 
-        $search = '@monorail';
-        $replace = "alias: {\n      '@monorail': path.resolve(__dirname, 'node_modules/monorailphp/resources/js'),";
+        // Inject @monorail alias — handle existing alias block, missing alias block, or no resolve block at all.
+        if (! str_contains($content, '@monorail')) {
+            $aliasEntry = "'@monorail': path.resolve(__dirname, 'node_modules/monorailphp/resources/js')";
 
-        if (! str_contains($content, $search)) {
-            $content = str_replace('alias: {', $replace, $content);
+            if (str_contains($content, 'alias: {')) {
+                $content = str_replace('alias: {', "alias: {\n            {$aliasEntry},", $content);
+            } elseif (str_contains($content, 'resolve: {')) {
+                $content = str_replace('resolve: {', "resolve: {\n        alias: {\n            {$aliasEntry},\n        },", $content);
+            } else {
+                // No resolve block — inject before the closing of defineConfig
+                $content = str_replace('});', "    resolve: {\n        alias: {\n            {$aliasEntry},\n        },\n    },\n});", $content);
+            }
         }
 
         File::put($viteConfigPath, $content);
