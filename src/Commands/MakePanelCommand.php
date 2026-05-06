@@ -49,10 +49,38 @@ final class MakePanelCommand extends Command
         ]));
 
         $this->info("Panel provider [{$name}] created at {$path}.");
-        $this->line('');
-        $this->line('Next: register it in bootstrap/providers.php:');
-        $this->line("  App\\Providers\\Monorail\\{$name}::class,");
+        $this->registerProvider("App\\Providers\\Monorail\\{$name}");
 
         return self::SUCCESS;
+    }
+
+    private function registerProvider(string $class): void
+    {
+        $path = base_path('bootstrap/providers.php');
+
+        if (! file_exists($path)) {
+            $this->warn('  Could not find bootstrap/providers.php — add manually:');
+            $this->line("  {$class}::class,");
+
+            return;
+        }
+
+        $content = file_get_contents($path);
+        $entry = "{$class}::class";
+
+        if (str_contains($content, $entry)) {
+            $this->info('  Provider already registered.');
+
+            return;
+        }
+
+        $content = preg_replace(
+            '/^(\s*)(App\\\\Providers\\\\AppServiceProvider::class,)/m',
+            "$1$2\n$1{$entry},",
+            $content,
+        );
+
+        file_put_contents($path, $content);
+        $this->info('  Provider registered in bootstrap/providers.php.');
     }
 }
