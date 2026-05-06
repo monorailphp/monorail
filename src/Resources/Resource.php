@@ -319,6 +319,11 @@ abstract class Resource
         $modelClass = static::getModel();
         $gate = Gate::forUser($user);
 
+        // No policy registered — allow by default.
+        if ($gate->getPolicyFor($modelClass) === null) {
+            return;
+        }
+
         match ($ability) {
             'viewAny' => $gate->authorize('viewAny', $modelClass),
             'view' => $gate->authorize('view', $model ?? throw new \InvalidArgumentException('Model required for view authorization.')),
@@ -341,6 +346,11 @@ abstract class Resource
 
         $modelClass = static::getModel();
         $gate = Gate::forUser($user);
+
+        // No policy registered — allow by default.
+        if ($gate->getPolicyFor($modelClass) === null) {
+            return true;
+        }
 
         return match ($ability) {
             'viewAny' => $gate->check('viewAny', $modelClass),
