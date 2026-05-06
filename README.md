@@ -28,7 +28,7 @@ API surface to design.
 ## Install
 
 ```bash
-composer require monorail/monorail
+composer require monorailphp/monorail
 npm install monorailphp
 ```
 

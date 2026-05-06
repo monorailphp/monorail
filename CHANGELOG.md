@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `monorail/monorail` are documented here.
+All notable changes to `monorailphp/monorail` are documented here.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0);
 the project adheres to [Semantic Versioning](https://semver.org/).
 

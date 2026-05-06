@@ -6,7 +6,7 @@ This file provides guidance to AI agents (Claude, GPT, Copilot, etc.) when worki
 
 **Monorail** is a Server-Driven UI (SDUI) framework for Laravel + Inertia.js + React. The server sends complete UI schemas (JSON) describing what to render; the React client renders it deterministically. This replaces traditional client-side state management and API design with a single source of truth in PHP.
 
-- **Package:** `monorail/monorail` (Composer) / `@monorail/monorail` (NPM)
+- **Package:** `monorailphp/monorail` (Composer) / `@monorail/monorail` (NPM)
 - **Namespace:** `Monorail`
 - **Stack:** PHP 8.2+ · Laravel 11–13 · Inertia v3 · React 19 · Tailwind CSS v4 · Pest 4
 - **Type:** Laravel service provider package with dual frontend (React) and backend (PHP) components

@@ -14,7 +14,7 @@
 **1. Install the Composer package:**
 
 ```bash
-composer require monorail/monorail
+composer require monorailphp/monorail
 ```
 
 **2. Run the install command (recommended):**

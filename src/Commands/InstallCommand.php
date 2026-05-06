@@ -38,7 +38,7 @@ final class InstallCommand extends Command
         $this->info('Monorail installed successfully!');
         $this->line('');
         $this->line('Next: Create a panel and resource:');
-        $this->line('  composer require monorail/monorail');
+        $this->line('  composer require monorailphp/monorail');
         $this->line('  php artisan monorail:make-panel Admin');
         $this->line('  php artisan monorail:make-resource User');
 

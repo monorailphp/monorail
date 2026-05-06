@@ -1,5 +1,5 @@
 {
-    "name": "monorail/monorail",
+    "name": "monorailphp/monorail",
     "description": "Server-Driven UI (SDUI) framework for Laravel + Inertia.js + React + shadcn/ui.",
     "type": "library",
     "license": "MIT",

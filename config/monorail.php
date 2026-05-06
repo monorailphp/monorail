@@ -45,7 +45,7 @@ return [
     */
 
     'assets' => [
-        'js_entry' => env('MONORAIL_JS_ENTRY', 'vendor/monorail/monorail/resources/js/monorail.tsx'),
+        'js_entry' => env('MONORAIL_JS_ENTRY', 'vendor/monorailphp/monorail/resources/js/monorail.tsx'),
     ],
 
     /*

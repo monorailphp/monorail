@@ -28,7 +28,7 @@ one as default with `$panel->default()`.
 
 | Key | Default | Purpose |
 | --- | --- | --- |
-| `assets.js_entry` | `env('MONORAIL_JS_ENTRY', 'vendor/monorail/monorail/resources/js/monorail.tsx')` | Vite entry included in the root Blade view. Point this at your own entry file if you call `createMonorail()` to register custom components — see [Customizing the Frontend](advanced/customizing-the-frontend.md). |
+| `assets.js_entry` | `env('MONORAIL_JS_ENTRY', 'vendor/monorailphp/monorail/resources/js/monorail.tsx')` | Vite entry included in the root Blade view. Point this at your own entry file if you call `createMonorail()` to register custom components — see [Customizing the Frontend](advanced/customizing-the-frontend.md). |
 
 ## Routes
 
@@ -89,6 +89,6 @@ All keys that read from `env()` can be set without publishing the config:
 ```env
 MONORAIL_DEFAULT_PANEL=admin
 MONORAIL_ROOT_VIEW=monorail::app
-MONORAIL_JS_ENTRY=vendor/monorail/monorail/resources/js/monorail.tsx
+MONORAIL_JS_ENTRY=vendor/monorailphp/monorail/resources/js/monorail.tsx
 MONORAIL_BRAND="Acme"
 ```
