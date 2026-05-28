@@ -37,18 +37,19 @@ npm install monorailphp
 
 ### Peer dependencies
 
-Starting with `0.2.0`, Monorail's UI libraries (radix-ui, recharts, sonner,
-react-day-picker, cmdk, date-fns, lucide-react, class-variance-authority,
-clsx, tailwind-merge) are declared as `peerDependencies` so the host app's
-versions stay authoritative and React is never duplicated.
+Monorail ships its UI libraries (`radix-ui`, `recharts`, `sonner`,
+`react-day-picker`, `cmdk`, `date-fns`, `lucide-react`,
+`class-variance-authority`, `clsx`, `tailwind-merge`) as regular
+`dependencies` so `npm install monorailphp` pulls them in automatically.
 
-- **npm 7+** installs them automatically alongside `monorailphp`.
-- **pnpm / yarn with strict peer resolution** require an explicit install:
+Only React itself and Inertia remain as peers — these must be deduplicated
+with the host app so hooks and the Inertia router stay in a single instance:
 
-  ```bash
-  npm install radix-ui recharts sonner react-day-picker cmdk date-fns \
-      lucide-react class-variance-authority clsx tailwind-merge
-  ```
+- `react ^18 || ^19`
+- `react-dom ^18 || ^19`
+- `@inertiajs/react ^3.0.0`
+
+A standard Laravel + Inertia React app already satisfies these.
 
 ## Manual install
 
