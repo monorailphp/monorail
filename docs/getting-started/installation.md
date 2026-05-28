@@ -24,7 +24,7 @@ php artisan monorail:install
 ```
 
 This command will:
-- Install the npm package from GitHub Packages
+- Install the `monorailphp` npm package from the npm registry
 - Update `vite.config.ts` with the Monorail entry point
 - Publish the config file
 - Publish and run migrations
@@ -35,6 +35,21 @@ Or install the npm package manually:
 npm install monorailphp
 ```
 
+### Peer dependencies
+
+Starting with `0.2.0`, Monorail's UI libraries (radix-ui, recharts, sonner,
+react-day-picker, cmdk, date-fns, lucide-react, class-variance-authority,
+clsx, tailwind-merge) are declared as `peerDependencies` so the host app's
+versions stay authoritative and React is never duplicated.
+
+- **npm 7+** installs them automatically alongside `monorailphp`.
+- **pnpm / yarn with strict peer resolution** require an explicit install:
+
+  ```bash
+  npm install radix-ui recharts sonner react-day-picker cmdk date-fns \
+      lucide-react class-variance-authority clsx tailwind-merge
+  ```
+
 ## Manual install
 
 If you prefer not to use the install command, follow these steps:
@@ -43,7 +58,7 @@ If you prefer not to use the install command, follow these steps:
 
 ```css
 @import 'tailwindcss';
-@source '../../vendor/monorail/monorail/resources/js';
+@source '../../node_modules/monorailphp/resources/js';
 ```
 
 **2. Add the Monorail entry to `vite.config.ts`:**
