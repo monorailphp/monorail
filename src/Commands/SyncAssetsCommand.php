@@ -10,8 +10,7 @@ use Symfony\Component\Process\Process;
 final class SyncAssetsCommand extends Command
 {
     protected $signature = 'monorail:sync-assets
-        {--skip-install : Update package.json but do not run npm install}
-        {--quiet : Suppress informational output}';
+        {--skip-install : Update package.json but do not run npm install}';
 
     protected $description = "Sync the host app's monorailphp npm package version to match the installed Composer package.";
 
