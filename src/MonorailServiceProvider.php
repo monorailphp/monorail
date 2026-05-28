@@ -11,6 +11,7 @@ use Monorail\Commands\MakeImporterCommand;
 use Monorail\Commands\MakePageCommand;
 use Monorail\Commands\MakePanelCommand;
 use Monorail\Commands\MakeResourceCommand;
+use Monorail\Commands\SyncAssetsCommand;
 use Monorail\Panel\PanelManager;
 
 final class MonorailServiceProvider extends ServiceProvider
@@ -63,6 +64,7 @@ final class MonorailServiceProvider extends ServiceProvider
                 MakePageCommand::class,
                 MakeExporterCommand::class,
                 MakeImporterCommand::class,
+                SyncAssetsCommand::class,
             ]);
         }
     }

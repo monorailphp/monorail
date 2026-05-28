@@ -95,4 +95,39 @@ php artisan vendor:publish --tag=monorail-config
 php artisan vendor:publish --tag=monorail-lang
 ```
 
+## Keep the npm package in sync with Composer
+
+The Composer package and the npm package are released together, but they live
+in two separate manifests. To keep them in lockstep after `composer update`,
+run:
+
+```bash
+php artisan monorail:sync-assets
+```
+
+This reads the installed Composer package's version from
+`vendor/monorailphp/monorail/package.json`, rewrites `package.json` in your
+application root so `monorailphp` is pinned to a matching `^x.y.z` range, and
+runs `npm install`.
+
+Flags:
+
+- `--skip-install` — only rewrite `package.json`; skip `npm install`.
+
+### Automate it on every `composer update`
+
+Add a hook to your application's `composer.json` so the sync happens
+automatically:
+
+```json
+"scripts": {
+    "post-update-cmd": [
+        "@php artisan monorail:sync-assets --skip-install"
+    ]
+}
+```
+
+Drop `--skip-install` if you want `npm install` to run as part of every
+Composer update.
+
 Next: [Quick Start](quick-start.md).
